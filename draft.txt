@@ -1,0 +1,56 @@
+Relatório
+
+Modelo: Epidemiológico
+Título: Modelo epidemiológico para compreensão de dinâmicas epidêmicas
+Alunos: André Augusto Fernandes e Poliane Brito de Oliveira
+
+Palavras-chaves: epidemiológico, infecção, vírus, dinâmica
+
+Resumo
+
+O presente projeto tem como objetivo a implementação de um modelo epidemiológico computacional (MEC) para compreensão de dinâmicas epidêmicas virais. Para isso, foi utilizado o modelo Suscetível-Infectado-Removido (SIR) aplicado a um caso hipotético, a partir do qual foram traçados diferentes cenários de contágio e recuperação a fim de analisar a evolução da epidemia e a eficácia de diferentes estratégias de contenção.
+O modelo foi implementado em linguagem Python e os resultados apresentados em gráficos.
+
+Simulação
+
+1.1. Parâmetros
+
+	Uma escola planeja organizar uma viagem de férias para seus alunos em um acampamento isolado. Com medo de uma epidemia viral, o diretor gostaria de traçar alguns cenários e contratou você para simulá-los. Utilizando o modelo SIR, fizemos um código que atendesse às seguintes especificações:
+
+Implementar o modelo SIR, isto é, encontrar os valores de S(t), I(t) e R(t) ao longo de um
+determinado período de simulação. Para isso:
+
+a. Instanciamos 3 objetos Cenário (cenário0, cenário1 e cenário2) com os seguintes parâmetros: 𝑆(0), 𝐼(0), 𝑅(0), ℎ, 𝑁_𝑏, 𝑇_𝑏, 𝑆_𝑏0, 𝐼_𝑏0, 𝑚_𝑘, 𝑛_𝑘, 𝑇_𝑘 e o tempo de simulação em dias.
+b. Criamos 3 data frames contendo quatro colunas, cada coluna com os valores de S(t), I(t), R(t) e tempo(t), respectivamente.
+c. Construímos os gráficos da evolução de cada um dos três cenários simuladas.
+d. Considerando que 2% dos indivíduos da população R não se recuperam e falecem em uma epidemia desse tipo, plotamos também a curva da estimativa de mortes relacionada à doença.
+
+1.2. Cenários:
+
+Cenário 0 (Nenhuma medida de contenção):
+● O número de alunos participantes do acampamento é 70. Destes, dois alunos estão infectados com o vírus e nenhum deles ainda se recuperou ou tornou-se imune.
+● A partir do início da simulação (tempo(0)=0), a discretização do tempo é de 6 minutos. Ou seja, a cada 6 minutos novos valores de S(t), I(t) e R(t) são calculados. Isso equivale a dizer que h=0,1 (ou seja, 1/10 de 1h).
+● Em uma excursão no passado, observou-se que em um grupo de 60 alunos, dentre os quais havia 10 infectados, apenas 38 alunos não estavam infectados após 24 horas de contato. Após o surto, os alunos infectados foram imediatamente isolados dentre
+eles, 6 se recuperaram nas 24h seguintes.
+
+A partir do cenário definido pelos parâmetros de entrada do simulador (Cenário 0), rodamos também dois outros cenário com diferentes estratégias de contenção:
+
+Cenário 1 (Distanciamento/uso de máscaras):
+Esta estratégia refere-se à facilidade/dificuldade de contágio na população, influenciando assim a variável b da equação. Para este cenário, suponha que o tempo de contaminação agora passa a ser maior (maior valor de T_b, embora os demais continuem constantes).
+
+Cenário 2 (Melhoria nos protocolos de atendimento):
+Esta estratégia refere-se à capacidade de recuperação de pessoas já infectadas, influenciando assim a variável k da equação. Podemos simular esta modificação simplesmente reduzindo o tempo que leva para o paciente melhorar (menor valor de T_k).
+
+ Resultados
+
+No cenário 0 (nenhuma medida de proteção) é possível observar um rápido crescimento no número de infectados até alcançar aproximadamente 40 alunos, a partir do qual se inicia uma gradual queda das infecções.
+
+No cenário 1 (com distanciamento social / uso de máscara) o número de infectados cai para praticamente a metade do cenário 0, e com o pico de infecção ocorrendo em quase o dobro do tempo do ocorrido anteriormente.
+
+No cenário 2 (melhoria nos protocolos de atendimento) vemos que, apesar de o tempo para atingir o pico de infecção ser o mesmo do cenário 0, o número de infectados foi de quase metade do mesmo.
+
+Discussão
+
+	Diante dos resultados obtidos e da observação empírica da evolução de uma epidemia viral sob diferentes estratégias de contenção, podemos concluir que o modelo SIR é uma ferramenta útil para a compreensão de dinâmicas epidêmicas e para a avaliação de diferentes estratégias de contenção. No entanto, é importante ressaltar que o modelo SIR é um modelo simplificado e que, portanto, não deve ser utilizado como única ferramenta para a tomada de decisões em situações reais. Além disso, é importante ressaltar que o modelo SIR não leva em consideração a possibilidade de reinfecção, o que pode ser um fator importante em epidemias virais.
+
+
